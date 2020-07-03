@@ -5,8 +5,6 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 use App\Cotizacion;
 
-
-
 $capsule = new Capsule;
 
 $capsule->addConnection([
@@ -27,7 +25,7 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 
-// $cotizacion= DB::table('affiliates as a')
+// $coti= DB::table('affiliates as a')
 //                         ->join('payment_frequencies as pf','a.payment_frequency_id','=','pf.id')
 //                         ->select(
 //                             'a.id',

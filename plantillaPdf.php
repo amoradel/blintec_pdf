@@ -1,3 +1,7 @@
+<?php
+    require_once 'bd.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +19,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            /* margin: 45mm 8mm 2mm 8mm; */
+            margin: 0mm 8mm 2mm 8mm;
         }
 
         .container {
@@ -34,25 +38,72 @@
         }
 
         .carta-vertical {
-            width: 710px;
+            width: 750px;
+            left: 8mm;
         }
 
-        table.detalle {
-            position: absolute;
-            margin: 265px 0 0 0;
+        table.encabezado {
+            position: fixed;
+            top: 260px;
             border-collapse: collapse;
             font-size: 14px;
         }
 
-        table.detalle thead {
+        table.encabezado thead {
             background: #EEEEEE;
             border-bottom: 5px solid #606060;
+        }
+
+        table.detalle {
+            width: 750px;
+
+            position: absolute;
+            top: 295px;
+            border-collapse: collapse;
+            font-size: 14px;
         }
 
         table.detalle td,
         th {
             border: 1px solid #AAAAAA;
             padding: 5px 3px;
+        }
+
+
+        th.numero {
+            width: 6%;
+        }
+
+        td.numero {
+            width: 6%;
+        }
+
+        th.servicio {
+            width: 52%;
+        }
+
+        td.servicio {
+            width: 52%;
+        }
+
+        th.cantidad {
+            width: 10%;
+            text-align: right;
+        }
+
+        td.cantidad {
+            width: 10%;
+            text-align: right;
+        }
+
+        th.valor {
+            width: 16%;
+            text-align: right;
+        }
+
+        td.valor {
+            width: 16%;
+            text-align: right;
         }
     </style>
 </head>
@@ -77,8 +128,8 @@
                     <br>RTN: 0801-9015-798479
                 </div>
             </td>
-            <td style="width: 28%; vertical-align: middle; border: 1px;">
-                <div class="boxes">
+            <td style="width: 28%; vertical-align: middle; border: 1px; ">
+                <div class="boxes" style="margin: 0 0 0 0;">
                     <h4 style="text-align: center; margin-top: 15px;">N° COTIZACIÓN</h4>
                     <h2 style="text-align: center; margin-top: 0px; margin-bottom: 15px;">18</h2>
                 </div>
@@ -88,7 +139,8 @@
             </td>
         </tr>
     </table>
-    <table class="boxes carta-vertical" style=" position: fixed; margin: 155px 0 0 0; padding: 5px; font-size: 14px;">
+
+    <table class="boxes carta-vertical" style=" position: fixed; top: 160px; padding: 5px; font-size: 14px; ">
         <tr>
             <td>
                 <strong>Cliente: Granjas Marinas</strong>
@@ -102,19 +154,18 @@
                 <br>Correo: jluque@blintechn.com
             </td>
             <td>
-                <!-- <td>
-                    Subtotal
-                    <br>Descuento
-                    <br>IVA (15%)
-                    <br>Total
-                </td>
-                <td>
-                    L 3425.00
-                    <br>L 342.50
-                    <br>462.38
-                    <br>3544.88
-                </td> -->
-
+                Subtotal
+                <br>Descuento
+                <br>IVA (15%)
+                <br>Total
+            </td>
+            <td>
+                L 3425.00
+                <br>L 342.50
+                <br>462.38
+                <br>3544.88
+            </td>
+            <!-- <td>
                 <table class="boxes" style="margin-left: auto;">
                     <tr>
                         <td>
@@ -149,51 +200,52 @@
                         </td>
                     </tr>
                 </table>
-            </td>
+            </td> -->
         </tr>
     </table>
 
-    <table border="1px" class="carta-vertical detalle">
+    <table class="carta-vertical encabezado">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Servicio / Producto</th>
-                <th>Cantidad</th>
-                <th>Valor</th>
-                <th>Total</th>
+                <th class="numero">#</th>
+                <th class="servicio">Servicio / Producto</th>
+                <th class="cantidad">Cantidad</th>
+                <th class="valor">Valor</th>
+                <th class="valor">Total</th>
             </tr>
         </thead>
+    </table>
+
+    <table class="detalle">
         <tbody>
             <tr>
-                <td colspan="5"></td>
+                <td class="numero">1</td>
+                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
+                <td class="cantidad">1</td>
+                <td class="valor">L 1,300.00</td>
+                <td class="valor">L 1,300.00</td>
             </tr>
             <tr>
-                <td>1</td>
-                <td>AMORTIGUADOR LH HILUX 4X4</td>
-                <td style="text-align: right;">1</td>
-                <td style="text-align: right;">L 1,300.00</td>
-                <td style="text-align: right;">L 1,300.00</td>
+                <td class="numero">2</td>
+                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
+                <td class="cantidad">1</td>
+                <td class="valor">L 1,300.00</td>
+                <td class="valor">L 1,300.00</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>AMORTIGUADOR LH HILUX 4X4</td>
-                <td style="text-align: right;">1</td>
-                <td style="text-align: right;">L 1,300.00</td>
-                <td style="text-align: right;">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>AMORTIGUADOR LH HILUX 4X4</td>
-                <td style="text-align: right;">1</td>
-                <td style="text-align: right;">L 1,300.00</td>
-                <td style="text-align: right;">L 1,300.00</td>
+                <td class="numero">3</td>
+                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
+                <td class="cantidad">1</td>
+                <td class="valor">L 1,300.00</td>
+                <td class="valor">L 1,300.00</td>
             </tr>
         </tbody>
     </table>
 
-    <div class=" boxes carta-vertical" style=" position:fixed; margin: 750px 0 0 0;">
+    <div class=" boxes carta-vertical" style=" position:fixed; top: 990px; font-size: 12px;">
         *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
-        <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre gasto
+        <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
+        gasto
         adicional que se presente al momento de desarmar el vehículo.
     </div>
 </body>

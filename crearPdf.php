@@ -6,7 +6,7 @@ use Dompdf\Dompdf;
 // Introducimos HTML de prueba
 ob_start();
   // Operaciones para generar el HTML que pueden ser llamadas a Bases de Datos, while, etc...
-  require_once ('Plantilla.html');
+  require_once ('prueba_plantilla.html');
   // Volcamos el contenido del buffer
   $html = ob_get_clean();
 
