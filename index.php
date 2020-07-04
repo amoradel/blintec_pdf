@@ -21,13 +21,13 @@
     <thead class="thead-dark">
         <tr>
             <th>Cotizador</th>
-            <th># Cotización</th>
+            <th>Cliente</th>
+            <th>RTN</th>
             <th>Remitente</th>
             <th>Referencia</th>
             <th>Fecha Emisión</th>
             <th># Factura</th>
             <th># Compra</th>
-            <th>Cliente</th>
             <th>Total</th>
             <th>PDF</th>
         </tr>
