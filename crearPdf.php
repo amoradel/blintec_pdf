@@ -1,8 +1,13 @@
 <?php
 // Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
 require_once 'vendor/autoload.php';
+require_once 'App/controller.php';
 
 use Dompdf\Dompdf;
+
+$id = $_GET("id");
+
+
 
 // Introducimos HTML de prueba
 ob_start();

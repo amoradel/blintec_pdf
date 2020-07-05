@@ -5,6 +5,7 @@ require_once 'bd.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 
+
 function imprimirTabla(){
 $cotizacion2= Capsule::table('cotizacion AS co')
                         ->join('clientes AS cli','co.id_cliente','=','cli.id_cliente')
@@ -38,9 +39,42 @@ $cotizacion2= Capsule::table('cotizacion AS co')
             echo "<td> $coti->referencia </td>";
             echo "<td> $coti->fecha_emision </td>";
             echo "<td> $coti->total </td>";
-            echo '<td> <a href="/crearPdf.php?id='.$coti->id_cotizador.'" target="_blank" class="btn btn-primary">Crear PDF</a> </td>' ;
+            echo '<td> <a href="crearPdf.php?id='.$coti->id_cotizador.'" target="_blank" class="btn btn-primary">Crear PDF</a> </td>' ;
         echo '</tr>';
     }
 }
 
+function cargarEncabezado($id){
+    $encabezado= Capsule::table('cotizacion AS co')
+                        ->join('clientes AS cli','co.id_cliente','=','cli.id_cliente')
+                        ->join('users AS u','co.id_remitente','=','u.id')
+                        ->join('compras_moneda AS cm','co.moneda','=','cm.id')
+                        ->select(
+                            'co.id_cotizador', 
+                            'co.num_cotizacion', 
+                            'co.id_remitente', 
+                            'co.referencia', 
+                            'co.fecha_emision as fecha', 
+                            'co.num_factura', 
+                            'co.introduccion', 
+                            'co.expiracion', 
+                            'co.subtotal',
+                            'co.iva',
+                            'co.total',
+                            'cm.moneda',
+                            'cli.nombre as cliente', 
+                            'cli.rtn', 
+                            'u.name as remitente', 
+                            'u.email as remitente_correo', 
+                            'u.telefono as remitente_telefono'
+                        )
+                        ->where('co.id_cotizador',$id)
+                        ->get();
 
+    return $encabezado;
+}
+
+function cargarDetalle($id){
+
+
+}
