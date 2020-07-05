@@ -38,7 +38,7 @@ $cotizacion2= Capsule::table('cotizacion AS co')
             echo "<td> $coti->referencia </td>";
             echo "<td> $coti->fecha_emision </td>";
             echo "<td> $coti->total </td>";
-            echo '<td> <a href="/crearPdf.php" target="_blank" class="btn btn-primary">Crear PDF</a> </td>' ;
+            echo '<td> <a href="/crearPdf.php?id='.$coti->id_cotizador.'" target="_blank" class="btn btn-primary">Crear PDF</a> </td>' ;
         echo '</tr>';
     }
 }

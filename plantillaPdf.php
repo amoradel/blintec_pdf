@@ -1,4 +1,5 @@
 <?php
+    require_once 'vendor/autoload.php';
     require_once 'App/controller.php';
 ?>
 
@@ -223,105 +224,6 @@
                 <td class="valor">L 1,300.00</td>
                 <td class="valor">L 1,300.00</td>
             </tr>
-            <tr>
-                <td class="numero">2</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
-
         </tbody>
     </table>
 

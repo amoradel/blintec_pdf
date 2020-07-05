@@ -1,12 +1,13 @@
 <?php
 // Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
 require_once 'vendor/autoload.php';
+
 use Dompdf\Dompdf;
 
 // Introducimos HTML de prueba
 ob_start();
   // Operaciones para generar el HTML que pueden ser llamadas a Bases de Datos, while, etc...
-  require_once ('prueba_plantilla.html');
+  require_once ('plantillaPdf.php');
   // Volcamos el contenido del buffer
   $html = ob_get_clean();
 
