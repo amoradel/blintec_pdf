@@ -1,5 +1,5 @@
 <?php
-    require_once 'bd.php';
+    require_once 'App/controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +8,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
     <title>Reporte</title>
 
     <style type="text/css">
@@ -30,8 +28,6 @@
         }
 
         .container {
-            /* width: 100%; */
-            /* padding-right: 0px;
             padding-left: 0px; */
             margin-right: auto;
             margin-left: auto;
@@ -55,15 +51,6 @@
 
         td.col-contacto {
             width: 37%;
-        }
-
-        td.col-cuenta-titulo {
-            width: 6%;
-        }
-
-        td.col-cuenta-valor {
-            width: 17%;
-            text-align: right;
         }
 
         table.encabezado {
@@ -130,7 +117,7 @@
 
         table.info {
             position: fixed;
-            top: 885px;
+            top: 805px;
             left: 570px;
             border-collapse: collapse;
             font-size: 13px;
@@ -140,6 +127,16 @@
         table.info td {
             border: 1px solid darkgray;
             padding: 5px 3px;
+        }
+
+        td.col-cuenta-titulo {
+            width: 34%;
+            text-align: center;
+        }
+
+        td.col-cuenta-valor {
+            width: 66%;
+            text-align: right;
         }
     </style>
 </head>
@@ -180,26 +177,22 @@
         <tr>
             <td class="col-cliente"><strong>Cliente: Granjas Marinas</strong></td>
             <td class="col-contacto">Contacto: JOSE LUQUE</td>
-            <!-- <td class="col-cuenta-titulo">Subtotal</td>
-            <td class="col-cuenta-valor">L 10,103,544.88</td> -->
+
         </tr>
         <tr>
             <td class="col-cliente">RTN: 0703199300340</td>
             <td class="col-contacto">Teléfono: 94400522</td>
-            <!-- <td class="col-cuenta-titulo">Descuento</td>
-            <td class="col-cuenta-valor">L 1,010,354.48</td> -->
+
         </tr>
         <tr>
             <td class="col-cliente"><strong>Vehiculo: NISSAN PATHFINDER</strong></td>
             <td class="col-contacto">Correo: jluque@blintechn.com</td>
-            <!-- <td class="col-cuenta-titulo">IVA (15%)</td>
-            <td class="col-cuenta-valor">L 1,515,531.73</td> -->
+
         </tr>
         <tr>
             <td class="col-cliente"><strong>Vin: VSKJVWR5120438544</strong></td>
             <td class="col-contacto"></td>
-            <!-- <td class="col-cuenta-titulo">Total</td>
-            <td class="col-cuenta-valor">L 9,598,367.63</td> -->
+
         </tr>
     </table>
 
@@ -328,20 +321,26 @@
                 <td class="valor">L 1,300.00</td>
                 <td class="valor">L 1,300.00</td>
             </tr>
-            <tr>
-                <td class="numero">3</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
-            </tr>
+
         </tbody>
     </table>
 
     <table class="carta-vertical info">
         <tr>
-            <td style="text-align: center; width: 34%;">Moneda:</td>
-            <td style="text-align: right; width: 66%;">Lempira Hondureño</td>
+            <td class="col-cuenta-titulo">Moneda:</td>
+            <td class="col-cuenta-valor">Lempira Hondureño</td>
+        </tr>
+        <tr>
+            <td class="col-cuenta-titulo">Neto:</td>
+            <td class="col-cuenta-valor">L 10,103,544.88</td>
+        </tr>
+        <tr>
+            <td class="col-cuenta-titulo">IVA (15%):</td>
+            <td class="col-cuenta-valor">L 1,515,531.73</td>
+        </tr>
+        <tr>
+            <td class="col-cuenta-titulo">Total:</td>
+            <td class="col-cuenta-valor">L 1,515,531.73</td>
         </tr>
     </table>
 

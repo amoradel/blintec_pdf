@@ -1,5 +1,5 @@
 <?php
-    require_once 'bd.php';
+    require_once 'App/controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +21,12 @@
     <thead class="thead-dark">
         <tr>
             <th>Cotizador</th>
+            <th># Cotizacion</th>
             <th>Cliente</th>
             <th>RTN</th>
             <th>Remitente</th>
             <th>Referencia</th>
             <th>Fecha Emisión</th>
-            <th># Factura</th>
-            <th># Compra</th>
             <th>Total</th>
             <th>PDF</th>
         </tr>
