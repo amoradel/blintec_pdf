@@ -1,6 +1,11 @@
 <?php
     require_once 'vendor/autoload.php';
     require_once 'App/controller.php';
+
+    $id = $cotizacion->getId();
+
+    $encabezado = cargarEncabezado($id);
+    $detalle = cargarDetalle ($id);
 ?>
 
 <!DOCTYPE html>

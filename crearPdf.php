@@ -5,9 +5,9 @@ require_once 'App/controller.php';
 
 use Dompdf\Dompdf;
 
-$id = $_GET("id");
+$id = $_GET["id"];
 
-
+$cotizacion->setId($id);
 
 // Introducimos HTML de prueba
 ob_start();
