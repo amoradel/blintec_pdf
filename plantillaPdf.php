@@ -233,8 +233,8 @@
                 <td class="numero"><?php echo $i; ?> </td>
                 <td class="servicio"><?php echo $de->producto; ?> </td>
                 <td class="cantidad"><?php echo $de->cantidad; ?> </td>
-                <td class="valor"><?php echo $de->precio; ?> </td>
-                <td class="valor"><?php echo $de->total; ?> </td>
+                <td class="valor">L <?php echo formateoNumero($de->precio); ?> </td>
+                <td class="valor">L <?php echo formateoNumero($de->total); ?> </td>
             </tr>
             <?php
                 if ($detalle->count()>15 &&  $i%$cantidad_detalle==0) {
@@ -244,7 +244,7 @@
                                 *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
                                 <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
                                 gasto adicional que se presente al momento de desarmar el vehículo.
-                                <br>***Validez de la oferta '. $encabezado[0]->expiracion. ' dias
+                                <br>***Validez de la oferta '. $encabezado[0]->expiracion. ' dias.
                             </div>';
 
                     echo '<hr>';
@@ -263,15 +263,15 @@
         </tr>
         <tr>
             <td class="col-cuenta-titulo">Neto:</td>
-            <td class="col-cuenta-valor">L <?php echo $encabezado[0]->subtotal; ?></td>
+            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado[0]->subtotal); ?></td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">IVA (15%):</td>
-            <td class="col-cuenta-valor">L <?php echo $encabezado[0]->iva; ?></td>
+            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado[0]->iva); ?></td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">Total:</td>
-            <td class="col-cuenta-valor">L <?php echo $encabezado[0]->total; ?></td>
+            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado[0]->total); ?></td>
         </tr>
     </table>
 
@@ -286,7 +286,7 @@
         *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
         <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
         gasto adicional que se presente al momento de desarmar el vehículo.
-        <br>***Validez de la oferta
+        <br>***Validez de la oferta <?php echo $encabezado[0]->expiracion; ?> dias.
     </div>
 
 </body>

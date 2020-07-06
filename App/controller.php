@@ -11,6 +11,10 @@ function formateoFecha($fecha){
     return date("d/m/Y", strtotime($fecha));
 }
 
+function formateoNumero($numero){
+    return number_format($numero,2,'.',',');
+}
+
 function imprimirTabla(){
 $query= Capsule::table('cotizacion AS co')
                         ->join('clientes AS cli','co.id_cliente','=','cli.id_cliente')
