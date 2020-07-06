@@ -29,7 +29,7 @@ $pdf->load_html($html);
 $pdf->render();
  
 // Enviamos el fichero PDF al navegador.
-$pdf->stream('reportePdf.pdf', array("Attachment"=>0));
+$pdf->stream('Cotizacion #' . $encabezado[0]->id_cotizador.'.pdf', array("Attachment"=>0));
 
 
 function file_get_contents_curl($url) {

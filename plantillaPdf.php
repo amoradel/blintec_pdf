@@ -6,6 +6,8 @@
 
     $encabezado = cargarEncabezado($id);
     $detalle = cargarDetalle ($id);
+
+    $cantidad_detalle =20;
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte</title>
+    <title>COTIZACIÓN #<?php echo $encabezado[0]->id_cotizador; ?> </title>
 
     <style type="text/css">
         html {
@@ -52,11 +54,11 @@
         }
 
         td.col-cliente {
-            width: 40%;
+            width: 65%;
         }
 
         td.col-contacto {
-            width: 37%;
+            width: 35%;
         }
 
         table.encabezado {
@@ -122,9 +124,9 @@
         }
 
         table.info {
-            position: fixed;
+            position: absolute;
             top: 805px;
-            left: 570px;
+            left: 539px;
             border-collapse: collapse;
             font-size: 13px;
             width: 210px;
@@ -170,10 +172,10 @@
             <td style="width: 28%; vertical-align: middle; border: 1px; ">
                 <div class="boxes" style="margin: 0 0 0 0;">
                     <h4 style="text-align: center; margin-top: 15px;">N° COTIZACIÓN</h4>
-                    <h2 style="text-align: center; margin-top: 0px; margin-bottom: 15px;">18</h2>
+                    <h2 style="text-align: center; margin-top: 0px; margin-bottom: 15px;"><?php echo $encabezado[0]->id_cotizador; ?> </h2>
                 </div>
                 <div class="boxes" style="margin-top: 5px; text-align: center; padding: 2px; font-size: 14px;">
-                    Fecha: 2020-05-23
+                    Fecha: <?php echo formateoFecha($encabezado[0]->fecha); ?> 
                 </div>
             </td>
         </tr>
@@ -181,18 +183,18 @@
 
     <table class="boxes carta-vertical" style=" position: fixed; top: 150px; padding: 5px; font-size: 13px; ">
         <tr>
-            <td class="col-cliente"><strong>Cliente: Granjas Marinas</strong></td>
-            <td class="col-contacto">Contacto: JOSE LUQUE</td>
+            <td class="col-cliente"><strong>Cliente: <?php echo $encabezado[0]->cliente; ?> </strong></td>
+            <td class="col-contacto">Contacto: <?php echo $encabezado[0]->user; ?> </td>
 
         </tr>
         <tr>
-            <td class="col-cliente">RTN: 0703199300340</td>
-            <td class="col-contacto">Teléfono: 94400522</td>
+            <td class="col-cliente">RTN: <?php echo $encabezado[0]->rtn; ?> </td>
+            <td class="col-contacto">Teléfono: <?php echo $encabezado[0]->user_telefono; ?> </td>
 
         </tr>
         <tr>
             <td class="col-cliente"><strong>Vehiculo: NISSAN PATHFINDER</strong></td>
-            <td class="col-contacto">Correo: jluque@blintechn.com</td>
+            <td class="col-contacto">Correo: <?php echo $encabezado[0]->user_correo; ?> </td>
 
         </tr>
         <tr>
@@ -202,7 +204,7 @@
         </tr>
     </table>
 
-    <table class="carta-vertical" style="position:fixed; top: 250px; font-size: 13px;">
+    <table class="carta-vertical" style="position:fixed; top: 255px; font-size: 13px;">
         <tr>
             <td>Introducción predeterminada</td>
         </tr>
@@ -222,50 +224,70 @@
 
     <table class="detalle">
         <tbody>
+            <?php
+            $i=0;
+            foreach ($detalle as $key => $de) {
+                $i++;
+            ?>
             <tr>
-                <td class="numero">1</td>
-                <td class="servicio">AMORTIGUADOR LH HILUX 4X4</td>
-                <td class="cantidad">1</td>
-                <td class="valor">L 1,300.00</td>
-                <td class="valor">L 1,300.00</td>
+                <td class="numero"><?php echo $i; ?> </td>
+                <td class="servicio"><?php echo $de->producto; ?> </td>
+                <td class="cantidad"><?php echo $de->cantidad; ?> </td>
+                <td class="valor"><?php echo $de->precio; ?> </td>
+                <td class="valor"><?php echo $de->total; ?> </td>
             </tr>
+            <?php
+                if ($detalle->count()>15 &&  $i%$cantidad_detalle==0) {
+                    echo '</tbody> </table>';
+
+                    echo '    <div class="boxes" style=" position:absolute; width: 750px; top: 990px; font-size: 12px;">
+                                *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
+                                <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
+                                gasto adicional que se presente al momento de desarmar el vehículo.
+                                <br>***Validez de la oferta '. $encabezado[0]->expiracion. ' dias
+                            </div>';
+
+                    echo '<hr>';
+                    echo '<table class="detalle"> <tbody>';
+                }
+
+            }
+            ?>
         </tbody>
     </table>
 
-    <table class="carta-vertical info">
+    <table class="info">
         <tr>
             <td class="col-cuenta-titulo">Moneda:</td>
-            <td class="col-cuenta-valor">Lempira Hondureño</td>
+            <td class="col-cuenta-valor"><?php echo $encabezado[0]->moneda; ?> </td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">Neto:</td>
-            <td class="col-cuenta-valor">L 10,103,544.88</td>
+            <td class="col-cuenta-valor">L <?php echo $encabezado[0]->subtotal; ?></td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">IVA (15%):</td>
-            <td class="col-cuenta-valor">L 1,515,531.73</td>
+            <td class="col-cuenta-valor">L <?php echo $encabezado[0]->iva; ?></td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">Total:</td>
-            <td class="col-cuenta-valor">L 1,515,531.73</td>
+            <td class="col-cuenta-valor">L <?php echo $encabezado[0]->total; ?></td>
         </tr>
     </table>
 
-    <table class="carta-vertical" style="position:fixed; top: 920px; font-size: 13px; border-top: 1px solid darkgray;">
+    <table style="position:absolute; width: 750px; top: 920px; font-size: 13px; border-top: 1px solid darkgray;">
         <tr>
             <td>Conclusión predeterminada</td>
         </tr>
     </table>
 
 
-    <div class=" boxes carta-vertical" style=" position:fixed; top: 990px; font-size: 12px;">
+    <div class="boxes" style=" position:absolute; width: 750px; top: 990px; font-size: 12px;">
         *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
         <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
         gasto adicional que se presente al momento de desarmar el vehículo.
         <br>***Validez de la oferta
     </div>
-
-    <hr>
 
 </body>
 

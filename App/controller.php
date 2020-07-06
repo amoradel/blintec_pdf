@@ -69,9 +69,9 @@ function cargarEncabezado($id){
                             'cm.moneda',
                             'cli.nombre as cliente', 
                             'cli.rtn', 
-                            'u.name as remitente', 
-                            'u.email as remitente_correo', 
-                            'u.telefono as remitente_telefono'
+                            'u.name as user', 
+                            'u.email as user_correo', 
+                            'u.telefono as user_telefono'
                         )
                         ->where('co.id_cotizador',$id)
                         ->get();
