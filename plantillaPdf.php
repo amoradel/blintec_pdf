@@ -247,7 +247,8 @@
                                 <br>***Validez de la oferta '. $encabezado[0]->expiracion. ' dias.
                             </div>';
 
-                    echo '<hr>';
+                    echo '<hr>'; //Salto de pagina
+
                     echo '<table class="detalle"> <tbody>';
                 }
 
