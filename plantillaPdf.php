@@ -2,10 +2,12 @@
     require_once 'vendor/autoload.php';
     require_once 'App/controller.php';
 
+    
     $id = $cotizacion->getId();
 
-    $encabezado = cargarEncabezado($id);
-    $detalle = cargarDetalle ($id);
+    var_dump($id);
+    // $encabezado = cargarEncabezado($id);
+    // $detalle = cargarDetalle ($id);
 
     $cantidad_detalle =20;
 ?>
@@ -172,10 +174,10 @@
             <td style="width: 28%; vertical-align: middle; border: 1px; ">
                 <div class="boxes" style="margin: 0 0 0 0;">
                     <h4 style="text-align: center; margin-top: 15px;">N° COTIZACIÓN</h4>
-                    <h2 style="text-align: center; margin-top: 0px; margin-bottom: 15px;"><?php echo $encabezado[0]->id_cotizador; ?> </h2>
+                    <h2 style="text-align: center; margin-top: 0px; margin-bottom: 15px;"><?php echo $encabezado['id_cotizador']; ?> </h2>
                 </div>
                 <div class="boxes" style="margin-top: 5px; text-align: center; padding: 2px; font-size: 14px;">
-                    Fecha: <?php echo formateoFecha($encabezado[0]->fecha); ?> 
+                    Fecha: <?php echo formateoFecha($encabezado['fecha']); ?> 
                 </div>
             </td>
         </tr>
@@ -183,18 +185,18 @@
 
     <table class="boxes carta-vertical" style=" position: fixed; top: 150px; padding: 5px; font-size: 13px; ">
         <tr>
-            <td class="col-cliente"><strong>Cliente: <?php echo $encabezado[0]->cliente; ?> </strong></td>
-            <td class="col-contacto">Contacto: <?php echo $encabezado[0]->user; ?> </td>
+            <td class="col-cliente"><strong>Cliente: <?php echo $encabezado['cliente']; ?> </strong></td>
+            <td class="col-contacto">Contacto: <?php echo $encabezado['user']; ?> </td>
 
         </tr>
         <tr>
-            <td class="col-cliente">RTN: <?php echo $encabezado[0]->rtn; ?> </td>
-            <td class="col-contacto">Teléfono: <?php echo $encabezado[0]->user_telefono; ?> </td>
+            <td class="col-cliente">RTN: <?php echo $encabezado['rtn']; ?> </td>
+            <td class="col-contacto">Teléfono: <?php echo $encabezado['user_telefono']; ?> </td>
 
         </tr>
         <tr>
             <td class="col-cliente"><strong>Vehiculo: NISSAN PATHFINDER</strong></td>
-            <td class="col-contacto">Correo: <?php echo $encabezado[0]->user_correo; ?> </td>
+            <td class="col-contacto">Correo: <?php echo $encabezado['user_correo']; ?> </td>
 
         </tr>
         <tr>
@@ -231,20 +233,20 @@
             ?>
             <tr>
                 <td class="numero"><?php echo $i; ?> </td>
-                <td class="servicio"><?php echo $de->producto; ?> </td>
-                <td class="cantidad"><?php echo $de->cantidad; ?> </td>
-                <td class="valor">L <?php echo formateoNumero($de->precio); ?> </td>
-                <td class="valor">L <?php echo formateoNumero($de->total); ?> </td>
+                <td class="servicio"><?php echo $de['producto']; ?> </td>
+                <td class="cantidad"><?php echo $de['cantidad']; ?> </td>
+                <td class="valor">L <?php echo formateoNumero($de['precio']); ?> </td>
+                <td class="valor">L <?php echo formateoNumero($de['total']); ?> </td>
             </tr>
             <?php
-                if ($detalle->count()>15 &&  $i%$cantidad_detalle==0) {
+                if ($detalle->num_rows>15 &&  $i%$cantidad_detalle==0) {
                     echo '</tbody> </table>';
 
                     echo '    <div class="boxes" style=" position:absolute; width: 750px; top: 990px; font-size: 12px;">
                                 *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
                                 <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
                                 gasto adicional que se presente al momento de desarmar el vehículo.
-                                <br>***Validez de la oferta '. $encabezado[0]->expiracion. ' dias.
+                                <br>***Validez de la oferta '. $encabezado['expiracion']. ' dias.
                             </div>';
 
                     echo '<hr>'; //Salto de pagina
@@ -260,19 +262,19 @@
     <table class="info">
         <tr>
             <td class="col-cuenta-titulo">Moneda:</td>
-            <td class="col-cuenta-valor"><?php echo $encabezado[0]->moneda; ?> </td>
+            <td class="col-cuenta-valor"><?php echo $encabezado['moneda']; ?> </td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">Neto:</td>
-            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado[0]->subtotal); ?></td>
+            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado['subtotal']); ?></td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">IVA (15%):</td>
-            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado[0]->iva); ?></td>
+            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado['iva']); ?></td>
         </tr>
         <tr>
             <td class="col-cuenta-titulo">Total:</td>
-            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado[0]->total); ?></td>
+            <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado['total']); ?></td>
         </tr>
     </table>
 
@@ -287,7 +289,7 @@
         *Condiciones de pago: 50% de Anticipo y 50% Contra Entrega
         <br>**Esta cotización puede variar ya que el avaluó fue basado en nuestra primera inspección y no cubre
         gasto adicional que se presente al momento de desarmar el vehículo.
-        <br>***Validez de la oferta <?php echo $encabezado[0]->expiracion; ?> dias.
+        <br>***Validez de la oferta <?php echo $encabezado['expiracion']; ?> dias.
     </div>
 
 </body>

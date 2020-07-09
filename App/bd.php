@@ -1,27 +1,27 @@
 <?php
-require_once 'vendor/autoload.php';
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+function conectarMySql(){
+    $conexion = mysqli_connect("127.0.0.1","homestead", "secret", "blintec_pdf");
 
-$capsule = new Capsule;
+    if($conexion->connect_error)
+        die($conexion->connect_error);
+    
+        return $conexion;
+}
 
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => '192.168.10.10',
-    'database'  => 'blintec_pdf',
-    'username'  => 'homestead',
-    'password'  => 'secret',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-]);
+function cerrarMySql(){
+        exit(1);
+}
 
-// Make this Capsule instance available globally via static methods... (optional)
-$capsule->setAsGlobal();
+function consulta($sql){
+    $conexion=conectarMySql();
 
-// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-$capsule->bootEloquent();
+    $resultado = $conexion->query($sql);
+
+    if($resultado->num_rows > 0){
+        return $resultado;
+    }
+}
 
 
-
-
+// consulta("SELECT co.id_cotizador, co.num_cotizacion, co.id_remitente, co.referencia, co.fecha_emision, co.num_factura, co.introduccion, co.expiracion, co.total, cli.nombre AS cliente, cli.rtn, u.name AS remitente, u.email AS remitente_correo, u.telefono AS remitente_telefono FROM blintec_pdf.cotizacion AS co JOIN blintec_pdf.clientes AS cli ON co.id_cliente = cli.id_cliente JOIN blintec_pdf.users AS u ON co.id_remitente = u.id;");
