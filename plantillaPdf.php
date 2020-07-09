@@ -2,12 +2,11 @@
     require_once 'vendor/autoload.php';
     require_once 'App/controller.php';
 
-    
+    // $id = $_GET["id"];
     $id = $cotizacion->getId();
 
-    var_dump($id);
-    // $encabezado = cargarEncabezado($id);
-    // $detalle = cargarDetalle ($id);
+    $encabezado = cargarEncabezado($id);
+    $detalle = cargarDetalle ($id);
 
     $cantidad_detalle =20;
 ?>
@@ -18,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COTIZACIÓN #<?php echo $encabezado[0]->id_cotizador; ?> </title>
+    <title>COTIZACIÓN #<?php echo $encabezado['id_cotizador']; ?> </title>
 
     <style type="text/css">
         html {
@@ -228,9 +227,11 @@
         <tbody>
             <?php
             $i=0;
-            foreach ($detalle as $key => $de) {
-                $i++;
-            ?>
+            if (is_array($detalle) || is_object($detalle)) {
+                foreach ($detalle as $key => $de) {
+                // while($de = $detalle->fetch_array()){
+                    $i++;
+                ?>
             <tr>
                 <td class="numero"><?php echo $i; ?> </td>
                 <td class="servicio"><?php echo $de['producto']; ?> </td>
@@ -253,12 +254,14 @@
 
                     echo '<table class="detalle"> <tbody>';
                 }
-
+            }
+            }else{
+                echo '<tr><td>Cotizacion vacia.</td></tr>';
             }
             ?>
         </tbody>
     </table>
-
+    
     <table class="info">
         <tr>
             <td class="col-cuenta-titulo">Moneda:</td>

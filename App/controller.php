@@ -29,7 +29,7 @@ function imprimirTabla(){
             echo '<td> '.$coti['referencia'].' </td>';
             echo '<td> '. formateoFecha($coti['fecha_emision']) .'</td>';
             echo '<td> '.$coti['total'].' </td>';
-            echo '<td> <a href="plantillaPdf.php?id='.$coti['id_cotizador'].'" target="_blank" class="btn btn-primary">Crear PDF</a> </td>' ;
+            echo '<td> <a href="crearPdf.php?id='.$coti['id_cotizador'].'" target="_blank" class="btn btn-primary">Crear PDF</a> </td>' ;
         echo '</tr>';
     }
 

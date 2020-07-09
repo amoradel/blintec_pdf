@@ -10,9 +10,10 @@ $cotizacion->setId($id);
 
 // Introducimos HTML de prueba
 ob_start();
-  // Operaciones para generar el HTML que pueden ser llamadas a Bases de Datos, while, etc...
+// Operaciones para generar el HTML que pueden ser llamadas a Bases de Datos, while, etc...
   require_once ('plantillaPdf.php');
-  // Volcamos el contenido del buffer
+  
+// Volcamos el contenido del buffer
   $html = ob_get_clean();
 
 // Instanciamos un objeto de la clase DOMPDF.
@@ -28,16 +29,5 @@ $pdf->load_html($html);
 $pdf->render();
  
 // Enviamos el fichero PDF al navegador.
-$pdf->stream('Cotizacion #' . $encabezado[0]->id_cotizador.'.pdf', array("Attachment"=>0));
-
-
-function file_get_contents_curl($url) {
-	$crl = curl_init();
-	$timeout = 5;
-	curl_setopt($crl, CURLOPT_URL, $url);
-	curl_setopt($crl, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($crl, CURLOPT_CONNECTTIMEOUT, $timeout);
-	$ret = curl_exec($crl);
-	curl_close($crl);
-	return $ret;
-}
+// $pdf->stream('Cotizacion #.pdf', array("Attachment"=>0));
+$pdf->stream('Cotizacion #' . $encabezado['id_cotizador'].'.pdf', array("Attachment"=>0));

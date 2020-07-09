@@ -19,6 +19,11 @@ function consulta($sql){
     $resultado = $conexion->query($sql);
 
     if($resultado->num_rows > 0){
+        // while($fila = $resultado->fetch_assoc()){
+        //     print "{$fila["remitente"]} \n";
+        // }
+
+
         return $resultado;
     }
 }
