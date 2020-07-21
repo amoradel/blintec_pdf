@@ -182,7 +182,7 @@
         </tr>
     </table>
 
-    <table class="boxes carta-vertical" style=" position: fixed; top: 150px; padding: 5px; font-size: 13px; ">
+    <!-- <table class="boxes carta-vertical" style=" position: fixed; top: 150px; padding: 5px; font-size: 13px; ">
         <tr>
             <td class="col-cliente"><strong>Cliente: <?php echo $encabezado['cliente']; ?> </strong></td>
             <td class="col-contacto">Contacto: <?php echo $encabezado['user']; ?> </td>
@@ -200,6 +200,29 @@
         </tr>
         <tr>
             <td class="col-cliente"><strong>Vin: VSKJVWR5120438544</strong></td>
+            <td class="col-contacto"></td>
+
+        </tr>
+    </table> -->
+
+    <table class="boxes carta-vertical" style=" position: fixed; top: 150px; padding: 5px; font-size: 13px; ">
+        <tr>
+            <td class="col-cliente"><strong>Cliente: Nombre de Cliente </strong></td>
+            <td class="col-contacto">Contacto: Nombre de Usuario </td>
+
+        </tr>
+        <tr>
+            <td class="col-cliente">RTN: Número de RTN </td>
+            <td class="col-contacto">Teléfono: Número de Teléfono </td>
+
+        </tr>
+        <tr>
+            <td class="col-cliente"><strong>Vehiculo: Descripción Vehículo </strong></td>
+            <td class="col-contacto">Correo: correo@blintec.com </td>
+
+        </tr>
+        <tr>
+            <td class="col-cliente"><strong>Vin: Número VIN</strong></td>
             <td class="col-contacto"></td>
 
         </tr>
@@ -261,7 +284,7 @@
             ?>
         </tbody>
     </table>
-    
+<!--     
     <table class="info">
         <tr>
             <td class="col-cuenta-titulo">Moneda:</td>
@@ -278,6 +301,25 @@
         <tr>
             <td class="col-cuenta-titulo">Total:</td>
             <td class="col-cuenta-valor">L <?php echo formateoNumero($encabezado['total']); ?></td>
+        </tr>
+    </table> -->
+
+   <table class="info">
+        <tr>
+            <td class="col-cuenta-titulo">Moneda:</td>
+            <td class="col-cuenta-valor">L 0.00 </td>
+        </tr>
+        <tr>
+            <td class="col-cuenta-titulo">Neto:</td>
+            <td class="col-cuenta-valor">L 0.00</td>
+        </tr>
+        <tr>
+            <td class="col-cuenta-titulo">IVA (15%):</td>
+            <td class="col-cuenta-valor">L 0.00</td>
+        </tr>
+        <tr>
+            <td class="col-cuenta-titulo">Total:</td>
+            <td class="col-cuenta-valor">L 0.00</td>
         </tr>
     </table>
 
